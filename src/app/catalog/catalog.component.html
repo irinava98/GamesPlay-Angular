@@ -1,0 +1,19 @@
+<div *ngFor="let game of games">
+    <h2>{{game.title}}</h2>
+    <span>{{categories[game.category]}}</span>
+    <br>
+    <img width="300px" height="300px" [src]="game.imageUrl">
+    <br>
+    <a [href]="game.gameLink"><button>Play</button></a>
+    <br>
+    <div style="color:azure; font-size: 18px;">{{game.summary}}</div>
+    <br>
+    <label>Comment: </label>
+    <textarea name="comment" id="comment" cols="30" rows="3" [(ngModel)]="comment.content"></textarea>
+    <button type="submit" (click)="publishComment()">Comment</button>
+    <br>
+    <button type="submit" (click)="addLike()">Like</button>
+    <br>
+    <br>
+    <br>
+</div>

@@ -1,0 +1,25 @@
+
+ <form #registerForm="ngForm" id="register">
+        <label [ngStyle]="{'color':'white'}" for="email">Username: </label>
+        <input type="text" required [(ngModel)]="user.username" name="username" #username="ngModel">
+        <br>
+        <div id="invalidUserName" *ngIf="!username.pristine && registerForm.controls['username'].errors?.['required']">Username is required</div>
+        <br>
+        <label [ngStyle]="{'color':'white'}" for="email">Email: </label>
+        <input type="email" required email pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" [(ngModel)]="user.email" name="email" #email="ngModel">
+        <br>
+        <div id="invalidEmail" *ngIf="!email.pristine && registerForm.controls['email'].errors?.['required']">Email is required</div>
+        <div id="invalidEmailType" *ngIf="registerForm.controls['email'].errors?.['pattern']">Not correct email type</div>
+        <br>
+        <label [ngStyle]="{'color':'white'}" for="password">Password: </label>
+        <input type="password" required [(ngModel)]="user.password" name="password" pattern="[A-Za-z0-9]{8,}" #password="ngModel">
+        <br>
+        <div id="invalidPassword" *ngIf="!password.pristine && registerForm.controls['password'].errors?.['required']">Password is required</div>
+        <div id="invalidPattern" *ngIf="registerForm.controls['password'].errors?.['pattern']">Password should only contains letters and digits and should have length longer than 7</div>
+        <br>
+        <button id="submit" type="submit" [disabled]="!registerForm.valid" (click)="register()">Register</button>
+        <br>
+        <br>
+        <span id="redirect">If you already have an account &nbsp;&nbsp;</span><a [ngStyle]="{'color':'white'}" routerLink="/login"><button id="redirectButton">Login</button></a>
+    
+</form>
