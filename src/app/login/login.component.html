@@ -16,7 +16,7 @@
         <label style="color:white; font-size: 15px;" for="remember">Remember me</label>
         <br>
         <br>
-        <button id="submit" type="submit" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+        <button id="submit" type="submit" [disabled]="!loginForm.valid" (click)="login(user.email,user.password)">Login</button>
         <div id="message">{{message}}</div>
         <br>
         <br>

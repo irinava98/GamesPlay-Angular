@@ -27,15 +27,11 @@ export class CatalogComponent implements OnInit {
   ngOnInit(): void {
     this.gameService.getGames().subscribe(games => this.games = games);
   }
-  addLike(){
-    if(this.game.likes!=undefined)
-    {
-      this.game.likes+=1;
+  addLike(game:Game){
+         game.likes!+=1;
+         this.gameService.updateGame(game).subscribe();
     }
 
-    console.log(this.game.likes);
-   
-  }
   publishComment(){
     this.addComment(this.comment);
   }

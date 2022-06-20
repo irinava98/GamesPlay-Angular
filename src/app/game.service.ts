@@ -33,4 +33,7 @@ export class GameService {
   addGame(game:Game):Observable<Game>{
     return this.http.post<Game>(this.gameUrl,game,this.httpOptions);
   }
+  updateGame(game:Game):Observable<Game>{
+    return this.http.put<Game>(this.gameUrl,game,this.httpOptions);
+  }
 }
