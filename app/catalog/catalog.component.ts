@@ -40,7 +40,9 @@ export class CatalogComponent implements OnInit {
          this.gameService.updateGame(game).subscribe();
     }
 
-  publishComment(){
+  publishComment(gameId:number){
+    this.comment.userId!=this.users[this.users.length-1].id;
+    this.comment.gameId=gameId;
     this.addComment(this.comment);
   }
 
@@ -54,7 +56,6 @@ export class CatalogComponent implements OnInit {
 
   addComment(newComment:Comment):void{
     //console.log(this.users[this.users.length-1]);
-
     this.commentService.addComment(newComment).subscribe();
   }
 

@@ -9,8 +9,8 @@
     <div style="color:azure; font-size: 18px;">{{game.summary}}</div>
     <br>
     <label>Comment: </label>
-    <textarea name="comment" id="comment" cols="30" rows="3" [(ngModel)]="comment.content"></textarea>
-    <button type="submit" (click)="publishComment()">Comment</button>
+    <textarea name="comment" id="comment" cols="30" rows="3"></textarea>
+    <button type="submit" (click)="publishComment(game.id!)">Comment</button>
     <br>
     <button type="submit" (click)="addLike(game)">Like</button>
     <br>
