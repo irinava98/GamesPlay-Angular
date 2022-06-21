@@ -1,0 +1,76 @@
+#submit{
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    background-color: pink;
+}
+
+#submit:hover{
+    font-size: 23px;
+}
+
+#submit[disabled]:hover{
+    font-size: 20px;   
+}
+
+#register{
+    position: relative;
+    top:120px;
+    left: 800px;
+}
+
+label{
+    margin-left: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+input{
+    
+    font-size: 23px;
+    margin:7px;
+}
+
+form{
+    padding-top:7px;
+    border: 5px ridge rgb(175, 16, 135);
+    width:490px;
+    height:400px;
+    background-color: rgb(88, 4, 63);
+}
+
+#redirectButton{
+    background-color: pink;
+}
+
+#redirectButton:hover{
+    font-weight: bold;
+}
+
+#redirect{
+    color:white;
+}
+
+#invalidUserName{
+    margin-left:5px;
+    color: rgb(238, 107, 107);
+    font-size: 18px;
+    background-color: black;
+}
+
+#invalidEmail,#invalidPassword,#invalidPattern,#invalidEmailType{
+    margin-left:5px;
+    color: rgb(238, 107, 107);
+    font-size: 18px;
+    background-color: black;
+}
+
+input.ng-invalid.ng-touched {
+    border: red 3px solid;
+}
+
+input.ng-valid.ng-touched {
+    border: rgb(18, 177, 45) 3px solid;
+}

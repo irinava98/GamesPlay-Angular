@@ -1,0 +1,28 @@
+
+  <form #loginForm="ngForm" id="login">
+        <label [ngStyle]="{'color':'white'}" for="email">Email: </label>
+        <input type="email" required email pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" [(ngModel)]="user.email" name="email" #email="ngModel">
+        <br>
+        <div id="invalidEmail" *ngIf="!email.pristine && loginForm.controls['email'].errors?.['required']">Email is required</div>
+        <div id="invalidEmailType" *ngIf="loginForm.controls['email'].errors?.['pattern']">Not correct email type</div>
+        <br>
+        <label [ngStyle]="{'color':'white'}" for="password">Password: </label>
+        <input type="password" required [(ngModel)]="user.password" name="password" pattern="[A-Za-z0-9]{8,}" #password="ngModel">
+        <br>
+        <div id="invalidPassword" *ngIf="!password.pristine  && loginForm.controls['password'].errors?.['required']">Password is required</div>
+        <div id="invalidPattern" *ngIf="loginForm.controls['password'].errors?.['pattern']">Password should only contains letters and digits and should have length longer than 7</div>
+        <br>
+        <input type="checkbox" id="remember" name="remember" value="Remember me">
+        <label style="color:white; font-size: 15px;" for="remember">Remember me</label>
+        <br>
+        <br>
+        <button id="submit" type="submit" [disabled]="!loginForm.valid" (click)="login(user.email,user.password)">Login</button>
+        <div id="message">{{message}}</div>
+        <br>
+        <br>
+        <span id="redirect">If you don't have an account &nbsp;&nbsp;</span><a [ngStyle]="{'color':'white'}" routerLink="/register"><button id="redirectButton">Register</button></a>
+        
+        
+    </form>
+
+

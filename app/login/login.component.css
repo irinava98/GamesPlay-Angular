@@ -1,0 +1,81 @@
+#submit{
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    background-color: pink;
+}
+
+#submit:hover{
+    font-size: 23px;
+}
+
+#submit[disabled]:hover{
+    font-size: 20px;   
+}
+
+#redirectButton{
+    background-color: pink;
+}
+
+#redirectButton:hover{
+    font-weight: bold;
+}
+
+
+label{
+    margin-left: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+input{
+    
+    font-size: 23px;
+    margin:10px;
+}
+
+#login{
+    position: relative;
+    top:120px;
+    left: 800px;
+}
+
+/* this doesn't work */
+input[type="checkbox"]:checked{
+
+    accent-color: #12e09c;
+}
+
+form{
+    padding-top:7px;
+    border: 5px ridge rgb(175, 16, 135);
+    width:450px;
+    height:400px;
+    background-color: rgb(88, 4, 63);
+}
+
+#redirect{
+    color:white;
+}
+
+#invalidEmail,#invalidPassword,#invalidPattern,#invalidEmailType{
+    margin-left:5px;
+    color: rgb(238, 107, 107);
+    font-size: 18px;
+    background-color: black;
+}
+
+input.ng-invalid.ng-touched {
+    border: red 3px solid;
+}
+
+input.ng-valid.ng-touched {
+    border: rgb(18, 177, 45) 3px solid;
+}
+
+#message{
+
+    margin-top:5px;
+    color:cornsilk;
+}
