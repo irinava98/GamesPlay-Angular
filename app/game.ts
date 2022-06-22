@@ -9,8 +9,9 @@ export class Game{
         public imageUrl?:string,
         public summary?:string,
         public likes?:number,
-        public id?:number,
-        public comments?:Comment[]
+        public comments?:Comment[],
+        public id?:number
+    
        
        
         ) {

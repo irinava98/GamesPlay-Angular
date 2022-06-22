@@ -15,34 +15,41 @@ import { Roles } from '../roles';
 })
 export class CatalogComponent implements OnInit {
   games:Game[]=[];
-
+  isVisible:boolean=false;
 
   comments:Comment[]=[];
 
-  game=new Game('', 0,'','','',0);
+  game=new Game('', 0,'','','',0,[]);
   users:User[]=[];
   //category:string=Categories[this.game.category];
   categories=Categories;
 
   constructor(private commentService:CommentService,private gameService:GameService,private userService:UserService) { }
-  
+
 
   ngOnInit(): void {
     this.gameService.getGames().subscribe(games => this.games = games);
     this.userService.getUsers().subscribe(users => this.users = users);
+    this.commentService.getComments().subscribe(comments=>this.comments=comments);
   }
   currentUser:User=this.users[this.users.length-1];
   comment=new Comment(1,1,'');
  
   addLike(game:Game){
-    //console.log(this.users[this.users.length-1].role);
+
          game.likes!+=1;
          this.gameService.updateGame(game).subscribe();
     }
 
-  publishComment(gameId:number){
-    this.comment.userId!=this.users[this.users.length-1].id;
+  publishComment(gameId:number,content:string){
+   
+    let userid:number=this.users[this.users.length-1].id!;
+    if(userid!=undefined){
+        this.comment.userId=userid;
+    }
+  
     this.comment.gameId=gameId;
+    this.comment.content=content;
     this.addComment(this.comment);
   }
 
@@ -55,7 +62,7 @@ export class CatalogComponent implements OnInit {
   }
 
   addComment(newComment:Comment):void{
-    //console.log(this.users[this.users.length-1]);
+    
     this.commentService.addComment(newComment).subscribe();
   }
 
@@ -63,8 +70,7 @@ export class CatalogComponent implements OnInit {
     this.gameService.deleteGame(id).subscribe();
   }
 
-  isNotVisible():boolean{
-    return this.users[this.users.length-1].role==Roles.ViewOnlyUser;
-  }
+ 
+ 
 
 }

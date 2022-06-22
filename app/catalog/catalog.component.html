@@ -1,5 +1,6 @@
+<button class="show" (click)="isVisible=!isVisible">{{isVisible? 'Hide Comments' : 'Show Comments'}}</button>   
 <div *ngFor="let game of games; let i as index">
-    <h2>{{game.title}}</h2>
+    <h2 class="titleGames">{{game.title}}</h2>
     <span>{{categories[game.category]}}</span>
     <br>
     <img id="image" width="300px" height="300px" [src]="game.imageUrl">
@@ -9,12 +10,15 @@
     <div style="color:azure; font-size: 18px;">{{game.summary}}</div>
     <br>
     <label>Comment: </label>
-    <textarea name="comment" id="comment" cols="30" rows="3"></textarea>
-    <button type="submit" (click)="publishComment(game.id!)">Comment</button>
+    <textarea name="comment" id="comment" cols="30" rows="3" #content></textarea>
+    <button type="submit" (click)="publishComment(game.id!,content.value)">Comment</button>
     <br>
     <button type="submit" (click)="addLike(game)">Like</button>
-    <br>
+    <img class="image" src="../../assets/images/e208643fa675243eea8042bfa38c16c7.jpg" width="35px" height="35px"><span class="likes">{{game.likes}}</span>
     <br>
     <button class="delete" type="submit" (click)="deleteGame(game.id!)">Delete</button>
     <br>
+        <span [hidden]="!isVisible" class="comments">Comments: </span>
+         <div [hidden]="!isVisible" *ngFor="let comment of comments" style="color:azure; font-size: 18px;"> <div *ngIf="comment.gameId==game.id">{{comment.content}}</div></div>
+    
 </div>

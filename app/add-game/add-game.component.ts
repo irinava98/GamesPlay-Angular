@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Categories } from '../categories';
 import { Game } from '../game';
 import { GameService } from '../game.service';
-import { Roles } from '../roles';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -31,8 +30,6 @@ export class AddGameComponent implements OnInit {
 
   submitGame(){
     this.game.category=Number(this.game.category);
-    this.users[this.users.length-1].role=Roles.Creator;
-    this.userService.updateUser(this.users[this.users.length-1]);
     this.addGame(this.game);
    
     this.game.title='';

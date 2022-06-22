@@ -56,3 +56,28 @@ label{
     background-color:rgb(15, 148, 104);
     padding: 3px;
 }
+
+.image{
+    left:200px;
+}
+
+.likes{
+    position: relative;
+    top:-15px;
+    left:205px;
+}
+
+.show{
+    position: relative;
+    left:900px;
+    padding: 4px;
+}
+
+.comments{
+    border: 2px black solid;
+}
+
+.titleGames{
+    position: relative;
+    left:150px;
+}
